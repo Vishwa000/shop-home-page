@@ -11346,7 +11346,7 @@ textarea.form-control-lg {
 .minus{
   border-radius: 15px;
   color:whitesmoke;
-  border-color:black;
+  border-color: #b6effb;
   height: 30px;
   margin-left: 10px;
   background-color: red;
@@ -11386,7 +11386,4 @@ textarea.form-control-lg {
 
 .list-group:hover .btn {
   opacity: 1;
-}
-.faStar{
-  color: yellow ;
 }

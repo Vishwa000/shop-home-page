@@ -5,8 +5,9 @@ import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import Cart from "./Cart";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
-import { faIceCream } from "@fortawesome/free-solid-svg-icons";
+import { faAppleAlt, faIceCream } from "@fortawesome/free-solid-svg-icons";
 import "font-awesome/css/font-awesome.min.css";
+
 function App() {
   const productlist = [
     {
@@ -112,7 +113,7 @@ function App() {
       <nav class="navbar navbar-expand-lg navbar-light  bg-secondary">
         <div class="container px-4 px-lg-5">
           <a class="navbar-brand text-white" href="#!">
-            Apple Store
+            {/* <FontAwesomeIcon icon={brands(`apple`)} /> */} Apple Store
           </a>
           <button
             class="navbar-toggler"
