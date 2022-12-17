@@ -6,94 +6,106 @@ import Cart from "./Cart";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
 import { faIceCream } from "@fortawesome/free-solid-svg-icons";
-
+import "font-awesome/css/font-awesome.min.css";
 function App() {
-  const product = [
+  const productlist = [
     {
       id: 1,
       name: "iPhone 13",
       Image:
         "https://www.aptronixindia.com/media/catalog/product/cache/e16cc9c2744816b243de32cfba0b1d13/r/1/r1434_blue_pdp_image_position-1a_avail__en-in_1-removebg-preview_1.png",
-      price: "63999",
-      pricemute: false,
+      price: 63999,
+      isFont: false,
     },
     {
       id: 2,
       name: "iPhone 13 Pro",
       Image:
         "https://www.aptronixindia.com/media/catalog/product/cache/31f0162e6f7d821d2237f39577122a8a/i/p/iphone_13_pro_max_green_pdp_image_position-1a_avail__en-in_3.jpg",
-      price: " 112900",
-      pricemute: true,
+      price: 112900,
+      isFont: true,
     },
     {
       id: 3,
       name: "iPhone 14",
       Image:
         "https://www.aptronixindia.com/media/catalog/product/cache/e16cc9c2744816b243de32cfba0b1d13/r/1/r1594_blue_pdp_image_position-1a_avail__en-in-removebg-preview.png",
-      price: "75990",
-      pricemute: true,
+      price: 75990,
+      isFont: false,
     },
     {
       id: 4,
       name: "iPhone 14 Pro",
       Image:
         "https://www.aptronixindia.com/media/catalog/product/cache/31f0162e6f7d821d2237f39577122a8a/i/p/iphone_14_pro_gold_pdp_image_position-1a_avail__en-in_1.jpg",
-      price: "129900",
-      pricemute: false,
+      price: 129900,
+      isFont: true,
     },
     {
       id: 5,
       name: "iPhone 14 Pro Max",
       Image:
         "https://www.aptronixindia.com/media/catalog/product/cache/31f0162e6f7d821d2237f39577122a8a/i/p/iphone_14_pro_max_silver_pdp_image_position-1a_avail__en-in.jpg",
-      price: "139900",
-      pricemute: true,
+      price: 139900,
+      isFont: false,
     },
     {
       id: 6,
       name: "16-inch MacBook Pro: Apple M1 Pro chip",
       Image:
         "https://www.aptronixindia.com/media/catalog/product/cache/e16cc9c2744816b243de32cfba0b1d13/m/b/mbp14-spacegray-select-202110-removebg-preview_2__1.png",
-      price: "227905",
-      pricemute: true,
+      price: 227905,
+      isFont: true,
     },
     {
       id: 7,
       name: "iPad Pro M1 Chip - 11 inch",
       Image:
         "https://www.aptronixindia.com/media/catalog/product/cache/e16cc9c2744816b243de32cfba0b1d13/i/n/in_r1444_cellular_pdp_image_position-1b_space_grey-removebg-preview_1.png",
-      price: "71900",
-      pricemute: true,
+      price: 71900,
+      isFont: false,
     },
     {
       id: 8,
       name: "Watch Series 8",
       Image:
         "https://www.aptronixindia.com/media/catalog/product/cache/e16cc9c2744816b243de32cfba0b1d13/g/o/gold_stainless_steel_milanese_loop.png",
-      price: "45900",
-      pricemute: false,
+      price: 45900,
+      isFont: true,
     },
     {
       id: 9,
       name: "Watch Series 7",
       Image:
         "https://www.aptronixindia.com/media/catalog/product/cache/e16cc9c2744816b243de32cfba0b1d13/g/o/gold_3.png",
-      price: "37710",
-      pricemute: true,
+      price: 37710,
+      isFont: false,
     },
   ];
   let [cartlist, setCart] = useState([]);
   let [total, setTotal] = useState(0);
 
   let addToCart = (product) => {
-    setCart([...cartlist, product]);
-    setTotal(total + parseInt(product.price));
+    setCart([...cartlist, { ...product, quantity: 1 }]);
+    setTotal(total + product.price);
   };
   let removeCart = (product) => {
     let itemIndex = cartlist.findIndex((item) => product.id === item.id);
     cartlist.splice(itemIndex, 1);
     setCart([...cartlist]);
-    setTotal(total - parseInt(product.price));
+    setTotal(total - product.price * product.quantity);
+  };
+  let inQuantity = (cartItem) => {
+    let itemIndex = cartlist.findIndex((item) => cartItem.id === item.id);
+    cartlist[itemIndex].quantity = cartlist[itemIndex].quantity + 1;
+    setCart([...cartlist]);
+    setTotal(total + cartItem.price);
+  };
+  let decQuantity = (cartItem) => {
+    let itemIndex = cartlist.findIndex((item) => cartItem.id === item.id);
+    cartlist[itemIndex].quantity = cartlist[itemIndex].quantity - 1;
+    setCart([...cartlist]);
+    setTotal(total - cartItem.price);
   };
   return (
     <>
@@ -188,7 +200,7 @@ function App() {
         <div className="row mt-3">
           <div className="col-lg-9">
             <div className="row">
-              {product.map((product) => {
+              {productlist.map((product) => {
                 return (
                   <Card
                     product={product}
@@ -201,7 +213,12 @@ function App() {
           </div>
           <div className="col-lg-3">
             <h1 className="ele">Cart</h1>
-            <Cart cartlist={cartlist} removeCart={removeCart} />
+            <Cart
+              cartlist={cartlist}
+              removeCart={removeCart}
+              inQuantity={inQuantity}
+              decQuantity={decQuantity}
+            />
             <h1 className="totals">
               Total:<span className="rs">₹.</span>
               {total}

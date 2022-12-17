@@ -3,26 +3,37 @@ import {
   faAppleAlt,
   faAppleWhole,
   faBandage,
+  faBorderStyle,
+  faStairs,
+  faStar,
+  faStarHalfStroke,
+  faStarOfDavid,
+  faStarOfLife,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function Card({ product, addToCart, cartList }) {
   return (
     <div className="col-lg-4 mb-4">
-      <div class="card h-100">
+      <div class="cards-v card h-100">
         {/* <!-- Product image--> */}
         <img class="card-img-top" src={product.Image} alt="..." />
-        {/*  <!-- Product details--> */}
         <div class="card-body p-4">
           <div class="text-center">
-            {/* <!-- Product name--> */}
-            <h5 class="fw-bolder">{product.name}</h5>
-            {/*  <!-- Product price--> */}
-            <FontAwesomeIcon icon="fa-solid fa-star" />
-            <FontAwesomeIcon icon="fa-solid fa-star" />
-            <FontAwesomeIcon icon="fa-solid fa-star" />
-            <FontAwesomeIcon icon="fa-solid fa-star" />
-            <FontAwesomeIcon icon="fa-solid fa-star" />
+            <h5 class="fw-bolder"> {product.name}</h5>
+            {/* {product.productlist.map((Font) => {
+              return (
+                <FontAwesomeIcon
+                  style={{ color: "gold" }}
+                  icon={Font.isFont ? faStar : null}
+                />
+              );
+            })} */}
+            <FontAwesomeIcon style={{ color: "gold" }} icon={faStar} />
+            <FontAwesomeIcon style={{ color: "gold" }} icon={faStar} />
+            <FontAwesomeIcon style={{ color: "gold" }} icon={faStar} />
+            <FontAwesomeIcon style={{ color: "gold" }} icon={faStar} />
+            <FontAwesomeIcon style={{ color: "gold" }} icon={faStar} />
             <p className="card-text">₹. {product.price}</p>
           </div>
         </div>
