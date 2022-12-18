@@ -11338,16 +11338,18 @@ textarea.form-control-lg {
   border-radius: 15px;
  color:whitesmoke;
  border-color: #b6effb;
- height: 30px;
+ height: 35px;
  margin-right: 5px;
  background-color: green;
+ border: 5px solid;
  
 }
 .minus{
   border-radius: 15px;
   color:whitesmoke;
   border-color: #b6effb;
-  height: 30px;
+  height: 27px;
+ 
   margin-left: 10px;
   background-color: red;
  }

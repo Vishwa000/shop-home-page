@@ -220,6 +220,7 @@ function App() {
               inQuantity={inQuantity}
               decQuantity={decQuantity}
             />
+
             <h1 className="totals">
               Total:<span className="rs">₹.</span>
               {total}
