@@ -11336,22 +11336,19 @@ textarea.form-control-lg {
 }
 .plus{
   border-radius: 15px;
- color:whitesmoke;
  border-color: #b6effb;
- height: 35px;
+ height: 30px;
  margin-right: 5px;
  background-color: green;
- border: 5px solid;
- 
+color: white;
 }
 .minus{
   border-radius: 15px;
-  color:whitesmoke;
   border-color: #b6effb;
-  height: 27px;
- 
+  height: 30px;
   margin-left: 10px;
   background-color: red;
+  color: white;
  }
  .stock{
   color: chartreuse;
