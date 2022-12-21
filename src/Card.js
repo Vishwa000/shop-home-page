@@ -13,6 +13,16 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function Card({ product, addToCart, cartList }) {
+  const renderRating = (rating) => {
+    let stars = [];
+    if (rating) {
+      for (let i = 0; i < rating; i++) {
+        stars.push(<FontAwesomeIcon style={{ color: "gold" }} icon={faStar} />);
+      }
+    }
+    return stars;
+  };
+
   return (
     <div className="col-lg-4 mb-4">
       <div class="cards-v card h-100">
@@ -21,19 +31,10 @@ export default function Card({ product, addToCart, cartList }) {
         <div class="card-body p-4">
           <div class="text-center">
             <h5 class="fw-bolder"> {product.name}</h5>
-            {/* {product.productlist.map((Font) => {
-              return (
-                <FontAwesomeIcon
-                  style={{ color: "gold" }}
-                  icon={Font.isFont ? faStar : null}
-                />
-              );
+            {/*  {product.list.map((item) => {
+              return <FontAwesomeIcon icon={item.isFont ? faStar : null} />;
             })} */}
-            <FontAwesomeIcon style={{ color: "gold" }} icon={faStar} />
-            <FontAwesomeIcon style={{ color: "gold" }} icon={faStar} />
-            <FontAwesomeIcon style={{ color: "gold" }} icon={faStar} />
-            <FontAwesomeIcon style={{ color: "gold" }} icon={faStar} />
-            <FontAwesomeIcon style={{ color: "gold" }} icon={faStar} />
+            {renderRating(product.rating)}
             <p className="card-text">₹. {product.price}</p>
           </div>
         </div>

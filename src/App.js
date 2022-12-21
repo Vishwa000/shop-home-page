@@ -9,13 +9,14 @@ import { faAppleAlt, faIceCream } from "@fortawesome/free-solid-svg-icons";
 import "font-awesome/css/font-awesome.min.css";
 
 function App() {
-  const productlist = [
+  const list = [
     {
       id: 1,
       name: "iPhone 13",
       Image:
         "https://www.aptronixindia.com/media/catalog/product/cache/e16cc9c2744816b243de32cfba0b1d13/r/1/r1434_blue_pdp_image_position-1a_avail__en-in_1-removebg-preview_1.png",
       price: 63999,
+      rating: 4,
       isFont: false,
     },
     {
@@ -24,6 +25,7 @@ function App() {
       Image:
         "https://www.aptronixindia.com/media/catalog/product/cache/31f0162e6f7d821d2237f39577122a8a/i/p/iphone_13_pro_max_green_pdp_image_position-1a_avail__en-in_3.jpg",
       price: 112900,
+      rating: 3,
       isFont: true,
     },
     {
@@ -33,6 +35,7 @@ function App() {
         "https://www.aptronixindia.com/media/catalog/product/cache/e16cc9c2744816b243de32cfba0b1d13/r/1/r1594_blue_pdp_image_position-1a_avail__en-in-removebg-preview.png",
       price: 75990,
       isFont: false,
+      rating: 5,
     },
     {
       id: 4,
@@ -40,6 +43,7 @@ function App() {
       Image:
         "https://www.aptronixindia.com/media/catalog/product/cache/31f0162e6f7d821d2237f39577122a8a/i/p/iphone_14_pro_gold_pdp_image_position-1a_avail__en-in_1.jpg",
       price: 129900,
+      rating: 4,
       isFont: true,
     },
     {
@@ -48,6 +52,7 @@ function App() {
       Image:
         "https://www.aptronixindia.com/media/catalog/product/cache/31f0162e6f7d821d2237f39577122a8a/i/p/iphone_14_pro_max_silver_pdp_image_position-1a_avail__en-in.jpg",
       price: 139900,
+      rating: 5,
       isFont: false,
     },
     {
@@ -56,6 +61,7 @@ function App() {
       Image:
         "https://www.aptronixindia.com/media/catalog/product/cache/e16cc9c2744816b243de32cfba0b1d13/m/b/mbp14-spacegray-select-202110-removebg-preview_2__1.png",
       price: 227905,
+      rating: 4,
       isFont: true,
     },
     {
@@ -64,6 +70,7 @@ function App() {
       Image:
         "https://www.aptronixindia.com/media/catalog/product/cache/e16cc9c2744816b243de32cfba0b1d13/i/n/in_r1444_cellular_pdp_image_position-1b_space_grey-removebg-preview_1.png",
       price: 71900,
+      rating: 5,
       isFont: false,
     },
     {
@@ -72,6 +79,7 @@ function App() {
       Image:
         "https://www.aptronixindia.com/media/catalog/product/cache/e16cc9c2744816b243de32cfba0b1d13/g/o/gold_stainless_steel_milanese_loop.png",
       price: 45900,
+      rating: 4,
       isFont: true,
     },
     {
@@ -80,6 +88,7 @@ function App() {
       Image:
         "https://www.aptronixindia.com/media/catalog/product/cache/e16cc9c2744816b243de32cfba0b1d13/g/o/gold_3.png",
       price: 37710,
+      rating: 3,
       isFont: false,
     },
   ];
@@ -201,7 +210,7 @@ function App() {
         <div className="row mt-3">
           <div className="col-lg-9">
             <div className="row">
-              {productlist.map((product) => {
+              {list.map((product) => {
                 return (
                   <Card
                     product={product}
