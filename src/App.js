@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
 import { faAppleAlt, faIceCream } from "@fortawesome/free-solid-svg-icons";
 import "font-awesome/css/font-awesome.min.css";
+import { faApple } from "@fortawesome/free-brands-svg-icons";
 
 function App() {
   const list = [
@@ -121,8 +122,9 @@ function App() {
     <>
       <nav class="navbar navbar-expand-lg navbar-light  bg-secondary">
         <div class="container px-4 px-lg-5">
+          <FontAwesomeIcon style={{ fontSize: "50px" }} icon={faApple} />
           <a class="navbar-brand text-white" href="#!">
-            {/* <FontAwesomeIcon icon={brands(`apple`)} /> */} Apple Store
+            Apple Store
           </a>
           <button
             class="navbar-toggler"
